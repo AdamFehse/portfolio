@@ -13,15 +13,15 @@
   <div class="container">
     <a href="#" class="logo">AF</a>
     <ul>
+      <li><a href="#work">Work</a></li>
       <li><a href="#experience">Experience</a></li>
-      <li><a href="#portfolio">Portfolio</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </div>
 </nav>
 
-<!-- Hero with simulation viewport -->
+<!-- Hero -->
 <section id="hero">
   <div class="container">
     <div class="hero-layout">
@@ -32,15 +32,75 @@
           I build and manage digital infrastructure for the web &mdash; from WordPress and Drupal
           sites to automated workflows and interactive data visualizations.
         </p>
-        <a href="#portfolio" class="btn">See my work &rarr;</a>
+        <a href="#work" class="btn">See my work &rarr;</a>
       </div>
-      <div class="hero-portal">
-        <div class="portal-frame">
-          <iframe src="https://adamfehse.github.io/someoneWondered/" title="someoneWondered exoplanet simulation"></iframe>
-          <div class="portal-glow"></div>
+      <div class="hero-visual">
+        <div class="hero-screenshot">
+          <img src="images/ULMDeskTop.png" alt="ULM Productions website">
         </div>
-        <span class="portal-label">play with the demo</span>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- Work -->
+<section id="work">
+  <div class="container">
+    <h2 class="section-title">WordPress &amp; Web Projects</h2>
+    <div class="portfolio-grid">
+
+      <a href="https://www.uglylittlemonkeys.com" target="_blank" rel="noopener" class="portfolio-card">
+        <div class="card-thumb" style="background-image: url('images/ULMDeskTop.png')"></div>
+        <div class="card-info">
+          <h3>ULM Productions</h3>
+          <p>WordPress site for America&rsquo;s first mariachi &mdash; custom ACF fields, WooCommerce, GA4 analytics.</p>
+          <div class="tags">
+            <span class="tag">WordPress</span>
+            <span class="tag">ACF</span>
+            <span class="tag">WooCommerce</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="https://confluencenter.arizona.edu" target="_blank" rel="noopener" class="portfolio-card">
+        <div class="card-thumb" style="background-image: url('images/cnfluncenterDeskTop.png')"></div>
+        <div class="card-info">
+          <h3>Confluencenter for Creative Inquiry</h3>
+          <p>Drupal site management &mdash; 165 pages, taxonomy, responsive design, and accessibility.</p>
+          <div class="tags">
+            <span class="tag">Drupal</span>
+            <span class="tag">Taxonomy</span>
+            <span class="tag">Accessibility</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="https://github.com/AdamFehse/someoneWondered" target="_blank" rel="noopener" class="portfolio-card">
+        <div class="card-thumb thumb-placeholder"></div>
+        <div class="card-info">
+          <h3>someoneWondered</h3>
+          <p>AI-driven exoplanet system generator &mdash; 1.25M param transformer trained on NASA data, runs in-browser via ONNX/WASM.</p>
+          <div class="tags">
+            <span class="tag">PyTorch</span>
+            <span class="tag">ONNX</span>
+            <span class="tag">Three.js</span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- Demo -->
+<section id="demo">
+  <div class="container">
+    <h2 class="section-title">Interactive Demo</h2>
+    <p class="demo-intro">
+      AI-driven stellar system generator &mdash; trained on real exoplanet data, runs entirely in your browser.
+    </p>
+    <div class="demo-frame">
+      <iframe src="https://adamfehse.github.io/someoneWondered/" title="someoneWondered exoplanet simulation"></iframe>
     </div>
   </div>
 </section>
@@ -53,12 +113,8 @@
 
       <div class="card">
         <h3>Webmaster &mdash; ULM Productions</h3>
-        <div class="meta">January 2025 &ndash; Present</div>
-        <p>
-          Manage digital infrastructure for America&rsquo;s first mariachi.
-          WordPress, WP API, ACF, PHP, Linux. E-commerce via Stripe and WooCommerce.
-          SEO with GA4 and Google Search Console. Present site metrics to marketing teams.
-        </p>
+        <div class="card-meta">January 2025 &ndash; Present</div>
+        <p>Manage digital infrastructure for America&rsquo;s first mariachi. WordPress, WP API, ACF, PHP, Linux. E-commerce via Stripe and WooCommerce. SEO with GA4 and Google Search Console. Present site metrics to marketing teams.</p>
         <div class="tags">
           <span class="tag">WordPress</span>
           <span class="tag">WP API</span>
@@ -72,12 +128,8 @@
 
       <div class="card">
         <h3>Website Manager &mdash; Confluencenter for Creative Inquiry</h3>
-        <div class="meta">August 2023 &ndash; December 2025</div>
-        <p>
-          Managed a 165-page Drupal website. Taxonomy, responsive design, accessibility.
-          Developed a 3D geospatial sharing platform connecting artists to funding.
-          Presented data to cross-disciplinary teams.
-        </p>
+        <div class="card-meta">August 2023 &ndash; December 2025</div>
+        <p>Managed a 165-page Drupal website. Taxonomy, responsive design, accessibility. Developed a 3D geospatial sharing platform connecting artists to funding. Presented data to cross-disciplinary teams.</p>
         <div class="tags">
           <span class="tag">Drupal</span>
           <span class="tag">Taxonomy</span>
@@ -89,12 +141,8 @@
 
       <div class="card">
         <h3>Mentor &mdash; UArizona Student Engagement &amp; Career Development</h3>
-        <div class="meta">January 2023 &ndash; January 2024</div>
-        <p>
-          Led cross-functional teams through research-driven development using
-          design thinking. Facilitated async team collaboration with task tracking
-          and mentor office hours.
-        </p>
+        <div class="card-meta">January 2023 &ndash; January 2024</div>
+        <p>Led cross-functional teams through research-driven development using design thinking. Facilitated async team collaboration with task tracking and mentor office hours.</p>
         <div class="tags">
           <span class="tag">Design Thinking</span>
           <span class="tag">Asynchronous Teams</span>
@@ -104,66 +152,14 @@
 
       <div class="card">
         <h3>Researcher &mdash; UArizona</h3>
-        <div class="meta">January 2022 &ndash; January 2023</div>
-        <p>
-          Studied the relationship between economic access to technology and media literacy.
-          Found a correlation between an individual&rsquo;s ability to navigate a highly connected world.
-        </p>
+        <div class="card-meta">January 2022 &ndash; January 2023</div>
+        <p>Studied the relationship between economic access to technology and media literacy. Found a correlation between an individual&rsquo;s ability to navigate a highly connected world.</p>
         <div class="tags">
           <span class="tag">Data Analysis</span>
           <span class="tag">Media Literacy</span>
           <span class="tag">Research</span>
         </div>
       </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- Portfolio -->
-<section id="portfolio">
-  <div class="container">
-    <h2 class="section-title">WordPress &amp; Web Projects</h2>
-    <div class="portfolio-grid">
-
-      <a href="https://www.uglylittlemonkeys.com" target="_blank" rel="noopener" class="portfolio-card">
-        <div class="thumb" style="background-image: url('images/ULMDeskTop.png')"></div>
-        <div class="info">
-          <h3>ULM Productions</h3>
-          <p>WordPress site for America&rsquo;s first mariachi &mdash; custom ACF fields, WooCommerce, GA4 analytics.</p>
-          <div class="tags">
-            <span class="tag">WordPress</span>
-            <span class="tag">ACF</span>
-            <span class="tag">WooCommerce</span>
-          </div>
-        </div>
-      </a>
-
-      <a href="https://confluencenter.arizona.edu" target="_blank" rel="noopener" class="portfolio-card">
-        <div class="thumb" style="background-image: url('images/cnfluncenterDeskTop.png')"></div>
-        <div class="info">
-          <h3>Confluencenter for Creative Inquiry</h3>
-          <p>Drupal site management &mdash; 165 pages, taxonomy, responsive design, and accessibility.</p>
-          <div class="tags">
-            <span class="tag">Drupal</span>
-            <span class="tag">Taxonomy</span>
-            <span class="tag">Accessibility</span>
-          </div>
-        </div>
-      </a>
-
-      <a href="https://github.com/AdamFehse/someoneWondered" target="_blank" rel="noopener" class="portfolio-card">
-        <div class="thumb thumb-placeholder-3"></div>
-        <div class="info">
-          <h3>someoneWondered</h3>
-          <p>AI-driven stellar system generation &mdash; 1.25M param transformer trained on exoplanet data, runs in-browser via ONNX/WASM.</p>
-          <div class="tags">
-            <span class="tag">PyTorch</span>
-            <span class="tag">ONNX</span>
-            <span class="tag">Three.js</span>
-          </div>
-        </div>
-      </a>
 
     </div>
   </div>
