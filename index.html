@@ -15,6 +15,7 @@
     <ul>
       <li><a href="#experience">Experience</a></li>
       <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#demo">Demo</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
@@ -141,18 +142,33 @@
         </div>
       </a>
 
-      <a href="https://github.com/AdamFehse/someoneWondered" target="_blank" rel="noopener" class="portfolio-card">
+      <a href="https://adamfehse.github.io/someoneWondered/" target="_blank" rel="noopener" class="portfolio-card">
         <div class="thumb thumb-placeholder-3"></div>
         <div class="info">
           <h3>someoneWondered</h3>
-          <p>AI-driven stellar system generation &mdash; procedural world-building with machine learning.</p>
+          <p>AI-driven stellar system generation &mdash; 1.25M param transformer trained on exoplanet data, runs in-browser via ONNX/WASM.</p>
           <div class="tags">
-            <span class="tag">AI/ML</span>
-            <span class="tag">Procedural Gen</span>
+            <span class="tag">PyTorch</span>
+            <span class="tag">ONNX</span>
+            <span class="tag">Three.js</span>
           </div>
         </div>
       </a>
 
+    </div>
+  </div>
+</section>
+
+<!-- Interactive Demo -->
+<section id="demo">
+  <div class="container">
+    <h2 class="section-title">Interactive Demo</h2>
+    <p style="color: var(--text-muted); margin-bottom: var(--space-md);">
+      AI-driven exoplanet system generator &mdash; runs entirely in your browser.
+      Set parameters, hit generate, and watch a transformer model create a stellar system in real time.
+    </p>
+    <div class="demo-frame">
+      <iframe src="https://adamfehse.github.io/someoneWondered/" title="someoneWondered exoplanet simulation" loading="lazy"></iframe>
     </div>
   </div>
 </section>
