@@ -13,7 +13,6 @@
   <div class="container">
     <a href="#" class="logo">AF</a>
     <ul>
-      <li><a href="#demo">Demo</a></li>
       <li><a href="#experience">Experience</a></li>
       <li><a href="#portfolio">Portfolio</a></li>
       <li><a href="#skills">Skills</a></li>
@@ -22,23 +21,26 @@
   </div>
 </nav>
 
-<!-- Hero -->
+<!-- Hero with simulation viewport -->
 <section id="hero">
   <div class="container">
-    <h1>Adam Fehse</h1>
-    <div class="title">Webmaster &amp; WordPress Developer</div>
-    <p class="subtitle">
-      I build and manage digital infrastructure for the web &mdash; from WordPress and Drupal
-      sites to automated workflows and interactive data visualizations.
-    </p>
-  </div>
-</section>
-
-<!-- Interactive Demo (above the fold) -->
-<section id="demo">
-  <div class="container">
-    <div class="demo-frame">
-      <iframe src="https://adamfehse.github.io/someoneWondered/" title="someoneWondered exoplanet simulation"></iframe>
+    <div class="hero-layout">
+      <div class="hero-text">
+        <h1>Adam Fehse</h1>
+        <div class="hero-title">Webmaster &amp; WordPress Developer</div>
+        <p class="hero-sub">
+          I build and manage digital infrastructure for the web &mdash; from WordPress and Drupal
+          sites to automated workflows and interactive data visualizations.
+        </p>
+        <a href="#portfolio" class="btn">See my work &rarr;</a>
+      </div>
+      <div class="hero-portal">
+        <div class="portal-frame">
+          <iframe src="https://adamfehse.github.io/someoneWondered/" title="someoneWondered exoplanet simulation"></iframe>
+          <div class="portal-glow"></div>
+        </div>
+        <span class="portal-label">play with the demo</span>
+      </div>
     </div>
   </div>
 </section>
@@ -125,7 +127,7 @@
     <div class="portfolio-grid">
 
       <a href="https://www.uglylittlemonkeys.com" target="_blank" rel="noopener" class="portfolio-card">
-        <div class="thumb thumb-placeholder-1"></div>
+        <div class="thumb" style="background-image: url('images/ULMDeskTop.png')"></div>
         <div class="info">
           <h3>ULM Productions</h3>
           <p>WordPress site for America&rsquo;s first mariachi &mdash; custom ACF fields, WooCommerce, GA4 analytics.</p>
@@ -138,7 +140,7 @@
       </a>
 
       <a href="https://confluencenter.arizona.edu" target="_blank" rel="noopener" class="portfolio-card">
-        <div class="thumb thumb-placeholder-2"></div>
+        <div class="thumb" style="background-image: url('images/cnfluncenterDeskTop.png')"></div>
         <div class="info">
           <h3>Confluencenter for Creative Inquiry</h3>
           <p>Drupal site management &mdash; 165 pages, taxonomy, responsive design, and accessibility.</p>

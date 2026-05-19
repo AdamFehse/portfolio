@@ -93,54 +93,109 @@ section {
   color: var(--text);
 }
 
-/* hero */
+/* hero — split layout with simulation portal */
 #hero {
-  padding: calc(var(--space-lg) + 56px) 0 var(--space-md);
-  text-align: center;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 56px 0 0;
+  background: linear-gradient(135deg, var(--bg) 0%, #0d1117 100%);
 }
 
-#hero h1 {
-  font-size: clamp(2rem, 4vw, 3rem);
+.hero-layout {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xl);
+}
+
+.hero-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.hero-text h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
   font-weight: 800;
   letter-spacing: -0.02em;
+  color: var(--text);
   margin-bottom: var(--space-sm);
 }
 
-#hero .title {
-  font-size: clamp(0.95rem, 1.5vw, 1.1rem);
+.hero-title {
+  font-size: clamp(1rem, 2vw, 1.25rem);
   color: var(--accent);
   font-weight: 500;
-  margin-bottom: var(--space-sm);
+  margin-bottom: var(--space-md);
 }
 
-#hero .subtitle {
+.hero-sub {
   color: var(--text-muted);
-  font-size: 0.95rem;
-  max-width: 520px;
-  margin: 0 auto;
+  font-size: 1rem;
+  margin-bottom: var(--space-lg);
+  max-width: 440px;
 }
 
-/* demo fills the fold */
-#demo {
-  padding: 0 0 var(--space-xl);
+.hero-text .btn {
+  display: inline-block;
+  padding: var(--space-sm) var(--space-lg);
+  background: var(--accent);
+  color: var(--bg);
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: var(--radius);
+  font-size: 0.9rem;
+  transition: opacity 0.2s;
 }
 
-#demo .container {
-  max-width: 1200px;
+.hero-text .btn:hover {
+  opacity: 0.85;
 }
 
-.demo-frame {
-  width: 100%;
+/* portal widget */
+.hero-portal {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.portal-frame {
+  position: relative;
+  width: 380px;
+  height: 520px;
   border-radius: var(--radius-lg);
   overflow: hidden;
   border: 1px solid var(--border);
+  box-shadow:
+    0 0 60px rgba(16, 185, 129, 0.06),
+    0 0 120px rgba(16, 185, 129, 0.03);
 }
 
-.demo-frame iframe {
+.portal-frame iframe {
   width: 100%;
-  height: calc(100vh - 56px - 140px);
+  height: 100%;
   border: none;
   display: block;
+}
+
+.portal-glow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse at 50% 0%,
+    rgba(16, 185, 129, 0.04) 0%,
+    transparent 70%
+  );
+}
+
+.portal-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--text-muted);
+  opacity: 0.6;
 }
 
 /* experience */
@@ -291,28 +346,35 @@ footer {
 }
 
 /* responsive */
+@media (max-width: 900px) {
+  .hero-layout {
+    flex-direction: column;
+    text-align: center;
+    gap: var(--space-lg);
+  }
+  .hero-sub {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .portal-frame {
+    width: 320px;
+    height: 420px;
+  }
+}
+
 @media (max-width: 640px) {
   nav ul {
     gap: var(--space-md);
   }
+  nav a {
+    font-size: 0.8rem;
+  }
   .portfolio-grid {
     grid-template-columns: 1fr;
   }
-  #hero {
-    padding: calc(var(--space-lg) + 56px) 0 var(--space-sm);
-  }
-  #demo {
-    padding: 0;
-  }
-  #demo .container {
-    padding: 0;
-  }
-  .demo-frame {
-    border-radius: 0;
-    border-left: none;
-    border-right: none;
-  }
-  .demo-frame iframe {
-    height: calc(100vh - 56px - 100px);
+  .portal-frame {
+    width: 100%;
+    max-width: 360px;
+    height: 350px;
   }
 }
