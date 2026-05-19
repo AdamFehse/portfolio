@@ -164,6 +164,22 @@ section {
   opacity: 0.85;
 }
 
+.hero-actions {
+  display: flex;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+}
+
+.hero-text .btn-outline {
+  background: transparent;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+}
+
+.hero-text .btn-outline:hover {
+  opacity: 0.8;
+}
+
 .hero-visual {
   flex-shrink: 0;
   width: 50%;
@@ -322,6 +338,36 @@ section {
   background: var(--surface);
   border: 1px solid var(--border);
   color: var(--text);
+}
+
+/* blog */
+#blog {
+  text-align: center;
+  background: var(--surface);
+}
+
+#blog .btn {
+  display: inline-block;
+  padding: var(--space-sm) var(--space-lg);
+  background: var(--accent);
+  color: var(--bg);
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: var(--radius);
+  font-size: 0.9rem;
+  transition: opacity 0.2s;
+}
+
+#blog .btn:hover {
+  opacity: 0.85;
+}
+
+.blog-intro {
+  color: var(--text-muted);
+  margin-bottom: var(--space-lg);
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* contact */
