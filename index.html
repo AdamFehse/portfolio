@@ -18,6 +18,7 @@
       <li><a href="#skills">Skills</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
+    <button id="theme-toggle" aria-label="Toggle theme">&#9681;</button>
   </div>
 </nav>
 
@@ -217,6 +218,21 @@
     Adam Fehse &mdash; built with HTML &amp; CSS
   </div>
 </footer>
+
+<script>
+  (function() {
+    var html = document.documentElement;
+    var stored = localStorage.getItem('theme');
+    if (stored === 'light' || stored === 'dark') {
+      html.className = stored;
+    }
+    document.getElementById('theme-toggle').addEventListener('click', function() {
+      var next = html.className === 'dark' ? 'light' : 'dark';
+      html.className = next;
+      localStorage.setItem('theme', next);
+    });
+  })();
+</script>
 
 </body>
 </html>

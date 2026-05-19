@@ -1,4 +1,46 @@
 :root {
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 2rem;
+  --space-xl: 4rem;
+  --radius: 0.5rem;
+  --radius-lg: 1rem;
+  --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --bg: #ffffff;
+  --surface: #f4f4f5;
+  --surface-hover: #e4e4e7;
+  --text: #18181b;
+  --text-muted: #71717a;
+  --accent: #059669;
+  --accent-dim: #a7f3d0;
+  --border: #d4d4d8;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0a0a0f;
+    --surface: #12121a;
+    --surface-hover: #1a1a2e;
+    --text: #e4e4e7;
+    --text-muted: #71717a;
+    --accent: #10b981;
+    --accent-dim: #065f46;
+    --border: #27272a;
+  }
+}
+
+html.light {
+  --bg: #ffffff;
+  --surface: #f4f4f5;
+  --surface-hover: #e4e4e7;
+  --text: #18181b;
+  --text-muted: #71717a;
+  --accent: #059669;
+  --accent-dim: #a7f3d0;
+  --border: #d4d4d8;
+}
+
+html.dark {
   --bg: #0a0a0f;
   --surface: #12121a;
   --surface-hover: #1a1a2e;
@@ -7,13 +49,6 @@
   --accent: #10b981;
   --accent-dim: #065f46;
   --border: #27272a;
-  --space-sm: 0.5rem;
-  --space-md: 1rem;
-  --space-lg: 2rem;
-  --space-xl: 4rem;
-  --radius: 0.5rem;
-  --radius-lg: 1rem;
-  --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
 *, *::before, *::after {
@@ -81,6 +116,28 @@ nav a:hover {
   color: var(--text);
 }
 
+#theme-toggle {
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  font-size: 1rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s, border-color 0.2s;
+  flex-shrink: 0;
+}
+
+#theme-toggle:hover {
+  color: var(--text);
+  border-color: var(--accent);
+}
+
 /* sections */
 section {
   padding: var(--space-xl) 0;
@@ -99,7 +156,7 @@ section {
   display: flex;
   align-items: center;
   padding: 56px 0 0;
-  background: linear-gradient(135deg, var(--bg) 0%, #0d1117 100%);
+  background: linear-gradient(135deg, var(--bg) 0%, var(--surface) 100%);
 }
 
 .hero-layout {
