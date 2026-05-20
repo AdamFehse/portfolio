@@ -229,47 +229,7 @@ section {
   margin: 0 auto var(--space-sm);
 }
 
-.hero-signup input {
-  flex: 1;
-  padding: 0.7rem 1rem;
-  border-radius: var(--radius);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  background: rgba(255, 255, 255, 0.08);
-  color: #fff;
-  font-size: 0.9rem;
-  outline: none;
-  transition: border-color 0.2s;
-}
 
-.hero-signup input::placeholder {
-  color: rgba(255, 255, 255, 0.35);
-}
-
-.hero-signup input:focus {
-  border-color: var(--accent);
-}
-
-.hero-signup button {
-  padding: 0.7rem 1.2rem;
-  border: none;
-  border-radius: var(--radius);
-  background: var(--accent);
-  color: var(--bg);
-  font-weight: 600;
-  font-size: 0.85rem;
-  cursor: pointer;
-  transition: opacity 0.2s;
-  white-space: nowrap;
-}
-
-.hero-signup button:hover {
-  opacity: 0.85;
-}
-
-.hero-signup-note {
-  font-size: 0.7rem;
-  color: rgba(255, 255, 255, 0.3);
-}
 
 /* services */
 .services-grid {
@@ -589,11 +549,6 @@ footer {
     max-width: 400px;
     margin-left: auto;
     margin-right: auto;
-  }
-
-  .hero-signup {
-    flex-direction: column;
-    max-width: 320px;
   }
 
   .demo-frame iframe {
