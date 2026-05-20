@@ -581,10 +581,6 @@ section {
   margin-bottom: var(--space-sm);
 }
 
-.thumb-placeholder {
-  background-image: linear-gradient(135deg, var(--accent-dim), var(--bg), var(--accent-dim));
-}
-
 /* timeline */
 .timeline {
   display: flex;
