@@ -551,6 +551,21 @@ section {
   background-color: var(--surface-hover);
 }
 
+.card-thumb--grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 2px;
+  background: var(--border);
+}
+
+.card-thumb--grid img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
 .card-info {
   padding: var(--space-md);
 }
