@@ -39,10 +39,10 @@
   <div class="container">
     <a href="#" class="logo">AF</a>
     <ul>
+      <li><a href="#services">Services</a></li>
       <li><a href="#work">Work</a></li>
       <li><a href="#experience">Experience</a></li>
       <li><a href="#blog">Blog</a></li>
-      <li><a href="#skills">Skills</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </div>
@@ -50,25 +50,75 @@
 
 <!-- Hero -->
 <section id="hero">
+  <div class="hero-bg">
+    <iframe src="https://adamfehse.github.io/someoneWondered/" title="animated background"></iframe>
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-badge">Webmaster &amp; WordPress Developer</div>
+    <h1>I build &amp; manage<br>the web for you.</h1>
+    <p class="hero-sub">
+      WordPress, Drupal, WooCommerce, SEO &mdash; I handle the infrastructure so you can focus on your business.
+    </p>
+    <div class="hero-actions">
+      <a href="#services" class="btn">See services &rarr;</a>
+      <a href="#contact" class="btn btn-outline">Get in touch &rarr;</a>
+    </div>
+    <form class="hero-signup" action="mailto:adamfehse5@gmail.com" method="GET" enctype="text/plain">
+      <input type="email" name="subject" placeholder="Your email" required>
+      <button type="submit">Stay updated &rarr;</button>
+    </form>
+    <p class="hero-signup-note">No spam. Unsubscribe anytime. (Set up Formspree for true forms)</p>
+  </div>
+</section>
+
+<!-- Services -->
+<section id="services">
   <div class="container">
-    <div class="hero-layout">
-      <div class="hero-text">
-        <h1>Adam Fehse</h1>
-        <div class="hero-title">Webmaster &amp; WordPress Developer</div>
-        <p class="hero-sub">
-          I build and manage digital infrastructure for the web &mdash; from WordPress and Drupal
-          sites to automated workflows and interactive data visualizations.
-        </p>
-        <div class="hero-actions">
-          <a href="#work" class="btn">See my work &rarr;</a>
-          <a href="https://www.linkedin.com/in/adamfehse/recent-activity/articles/" target="_blank" rel="noopener" class="btn btn-outline">Read my blog &rarr;</a>
-        </div>
+    <h2 class="section-title">Services</h2>
+    <p class="section-desc">Final price determined after a free consultation.</p>
+    <div class="services-grid">
+
+      <div class="service-card">
+        <h3>WordPress Site</h3>
+        <div class="service-price">from <span>$1,500</span></div>
+        <ul>
+          <li>Custom theme or existing</li>
+          <li>ACF fields &amp; custom post types</li>
+          <li>WooCommerce setup</li>
+          <li>SEO &amp; GA4 integration</li>
+          <li>Mobile responsive</li>
+        </ul>
+        <a href="#contact" class="btn btn-outline">Inquire &rarr;</a>
       </div>
-      <div class="hero-visual">
-        <div class="hero-screenshot">
-          <img src="images/ULMDeskTop.png" alt="ULM Productions website">
-        </div>
+
+      <div class="service-card featured">
+        <div class="service-badge">Popular</div>
+        <h3>Site Management</h3>
+        <div class="service-price">from <span>$500</span> /mo</div>
+        <ul>
+          <li>Ongoing maintenance &amp; updates</li>
+          <li>Performance monitoring</li>
+          <li>Content updates</li>
+          <li>Security &amp; backups</li>
+          <li>Monthly analytics reports</li>
+        </ul>
+        <a href="#contact" class="btn">Inquire &rarr;</a>
       </div>
+
+      <div class="service-card">
+        <h3>Automation &amp; Data</h3>
+        <div class="service-price">from <span>$800</span></div>
+        <ul>
+          <li>N8N workflow automation</li>
+          <li>Custom data visualizations</li>
+          <li>Drupal site management</li>
+          <li>API integrations</li>
+          <li>Interactive dashboards</li>
+        </ul>
+        <a href="#contact" class="btn btn-outline">Inquire &rarr;</a>
+      </div>
+
     </div>
   </div>
 </section>
@@ -76,14 +126,14 @@
 <!-- Work -->
 <section id="work">
   <div class="container">
-    <h2 class="section-title">WordPress &amp; Web Projects</h2>
+    <h2 class="section-title">Recent Work</h2>
     <div class="portfolio-grid">
 
       <a href="https://www.uglylittlemonkeys.com" target="_blank" rel="noopener" class="portfolio-card">
         <div class="card-thumb" style="background-image: url('images/ULMDeskTop.png')"></div>
         <div class="card-info">
           <h3>ULM Productions</h3>
-          <p>WordPress site for America&rsquo;s first mariachi &mdash; custom ACF fields, WooCommerce, GA4 analytics.</p>
+          <p>WordPress site for America&rsquo;s first mariachi &mdash; ACF, WooCommerce, GA4.</p>
           <div class="tags">
             <span class="tag">WordPress</span>
             <span class="tag">ACF</span>
@@ -96,7 +146,7 @@
         <div class="card-thumb" style="background-image: url('images/cnfluncenterDeskTop.png')"></div>
         <div class="card-info">
           <h3>Confluencenter for Creative Inquiry</h3>
-          <p>Drupal site management &mdash; 165 pages, taxonomy, responsive design, and accessibility.</p>
+          <p>Drupal site management &mdash; 165 pages, taxonomy, responsive design.</p>
           <div class="tags">
             <span class="tag">Drupal</span>
             <span class="tag">Taxonomy</span>
@@ -109,41 +159,16 @@
         <div class="card-thumb thumb-placeholder"></div>
         <div class="card-info">
           <h3>Digital Story Map</h3>
-          <p>Interactive 3D globe for exploring Arizona-Sonora borderlands research and art projects &mdash; built with native ES6 modules, no backend.</p>
+          <p>Interactive 3D globe for exploring borderlands research and art projects.</p>
           <div class="tags">
             <span class="tag">Three.js</span>
-            <span class="tag">ES6 Modules</span>
+            <span class="tag">ES6</span>
             <span class="tag">Data Viz</span>
           </div>
         </div>
       </a>
 
     </div>
-  </div>
-</section>
-
-<!-- Demo -->
-<section id="demo">
-  <div class="container">
-    <h2 class="section-title">Interactive Demo</h2>
-    <p class="demo-intro">
-      A browser-based AI experiment &mdash; no backend required.
-    </p>
-    <div class="demo-frame">
-      <iframe src="https://adamfehse.github.io/someoneWondered/" title="someoneWondered exoplanet simulation"></iframe>
-    </div>
-  </div>
-</section>
-
-<!-- Blog -->
-<section id="blog">
-  <div class="container">
-    <h2 class="section-title">Blog</h2>
-    <p class="blog-intro">
-      I write about WordPress, web development, data visualization, and managing digital infrastructure.
-      Check out my latest articles on LinkedIn.
-    </p>
-    <a href="https://www.linkedin.com/in/adamfehse/recent-activity/articles/" target="_blank" rel="noopener" class="btn">Read my blog &rarr;</a>
   </div>
 </section>
 
@@ -205,6 +230,31 @@
       </div>
 
     </div>
+  </div>
+</section>
+
+<!-- Demo -->
+<section id="demo">
+  <div class="container">
+    <h2 class="section-title">Interactive Demo</h2>
+    <p class="demo-intro">
+      A browser-based AI experiment &mdash; no backend required.
+    </p>
+    <div class="demo-frame">
+      <iframe src="https://adamfehse.github.io/someoneWondered/" title="someoneWondered exoplanet simulation"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- Blog -->
+<section id="blog">
+  <div class="container">
+    <h2 class="section-title">Blog</h2>
+    <p class="blog-intro">
+      I write about WordPress, web development, data visualization, and managing digital infrastructure.
+      Check out my latest articles on LinkedIn.
+    </p>
+    <a href="https://www.linkedin.com/in/adamfehse/recent-activity/articles/" target="_blank" rel="noopener" class="btn">Read my blog &rarr;</a>
   </div>
 </section>
 
