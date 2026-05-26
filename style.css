@@ -73,59 +73,75 @@ body {
 
 .menu-toggle { display: none; flex-direction: column; gap: 5px; background: none; border: none; padding: 8px; z-index: 102; }
 .menu-toggle span { display: block; width: 22px; height: 2px; background: var(--text); border-radius: 1px; transition: all 0.3s; }
-.menu-toggle.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-.menu-toggle.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* mobile nav toggle */
+.m-toggle-input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
 
 @media (max-width: 640px) {
-  .menu-toggle { display: flex; }
+  .menu-toggle { display: flex; cursor: pointer; }
+
   #main-nav {
     position: fixed;
     top: 56px;
     left: 0;
     right: 0;
-    background: #000000;
-    border: none;
-    border-top: 1px solid var(--border);
-    border-radius: 0;
+    background: rgba(8, 8, 12, 0.97);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
     overflow: hidden;
     max-height: 0;
-    transition: max-height 0.3s ease;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+    transition: max-height 0.25s ease;
   }
-  #main-nav.open {
-    max-height: 400px;
+
+  #m-toggle:checked ~ #main-nav {
+    max-height: 500px;
     box-shadow: 0 12px 32px rgba(0, 0, 0, 0.6);
   }
-  #main-nav ul { flex-direction: column; align-items: stretch; gap: 0; padding: 0; }
+
+  /* animate hamburger to X */
+  #m-toggle:checked ~ .menu-toggle span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  #m-toggle:checked ~ .menu-toggle span:nth-child(2) { opacity: 0; }
+  #m-toggle:checked ~ .menu-toggle span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  #main-nav ul {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 0.5rem 0;
+  }
+
   #main-nav li { border-bottom: 1px solid rgba(255,255,255,0.06); }
   #main-nav li:last-child { border-bottom: none; }
+
   #main-nav a {
     display: block;
-    padding: 1.1rem 1.5rem;
+    padding: 1rem 1.25rem;
     color: var(--text);
-    font-size: 1.05rem;
+    font-size: 1rem;
     font-weight: 600;
-    letter-spacing: 0.01em;
     transition: background 0.15s, color 0.15s;
   }
   #main-nav a:hover {
     background: rgba(163, 230, 53, 0.08);
     color: var(--accent);
   }
+
   .nav-cta a {
     margin: 0.75rem 1rem;
     text-align: center;
     border-radius: var(--radius-full);
-    padding: 0.9rem 1rem;
-    color: #000 !important;
+    padding: 0.85rem 1rem;
+    color: var(--bg) !important;
     background: var(--accent);
     font-weight: 700;
-    box-shadow: none;
   }
-  .nav-cta a:hover {
-    opacity: 0.9;
-    transform: none;
-  }
+  .nav-cta a:hover { opacity: 0.9; transform: none; }
 }
 
 /* --------- FLOWING PATTERN --------- */
