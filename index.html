@@ -74,7 +74,7 @@
     ]
   }
   </script>
-  <link rel="stylesheet" href="style.css?v=nav-glow-1">
+  <link rel="stylesheet" href="style.css?v=lean-clean-1">
 </head>
 <body>
 
@@ -469,24 +469,6 @@
   </div>
 </section>
 
-<!-- Glory Glare Effect -->
-<div class="glory-container" aria-hidden="true">
-  <div class="glory-ray" style="--r:0; --d:0.8; --s:1.2;"></div>
-  <div class="glory-ray" style="--r:35; --d:1.1; --s:0.9;"></div>
-  <div class="glory-ray" style="--r:72; --d:0.6; --s:1.5;"></div>
-  <div class="glory-ray" style="--r:110; --d:1.4; --s:0.7;"></div>
-  <div class="glory-ray" style="--r:148; --d:0.9; --s:1.1;"></div>
-  <div class="glory-ray" style="--r:195; --d:1.6; --s:1.3;"></div>
-  <div class="glory-ray" style="--r:230; --d:0.7; --s:0.8;"></div>
-  <div class="glory-ray" style="--r:268; --d:1.2; --s:1.4;"></div>
-  <div class="glory-ray" style="--r:310; --d:1.0; --s:1.0;"></div>
-  <div class="glory-ray" style="--r:345; --d:1.3; --s:0.6;"></div>
-  <div class="glory-flare" style="--fx:20; --fy:30; --fd:2.1;"></div>
-  <div class="glory-flare" style="--fx:75; --fy:60; --fd:1.7;"></div>
-  <div class="glory-flare" style="--fx:50; --fy:15; --fd:2.5;"></div>
-  <div class="glory-burst"></div>
-</div>
-
 <footer>
   <div class="container">
     <div class="footer-grid">
@@ -533,22 +515,6 @@
   const reviewName = document.querySelector('[data-review-name]');
   const reviewAvatar = document.querySelector('[data-review-avatar]');
   const reviewCount = document.querySelector('[data-review-count]');
-  const reviews = [
-    {
-      quote: 'Loved the site. We went from not ranking to page 1.',
-      name: 'David'
-    },
-    {
-      quote: 'Easy to work with and clear through the whole process.',
-      name: 'David'
-    },
-    {
-      quote: 'The site looks great and is already helping people find us.',
-      name: 'David'
-    }
-  ];
-  let reviewIndex = 0;
-  let reviewTimer;
 
   window.addEventListener('scroll', () => {
     header.classList.toggle('scrolled', window.scrollY > 50);
@@ -569,59 +535,10 @@
     });
   });
 
-  function renderReview(index) {
-    const review = reviews[index];
-    reviewQuote.textContent = `\u201c${review.quote}\u201d`;
-    reviewName.textContent = review.name;
-    reviewAvatar.textContent = review.name.charAt(0);
-    reviewCount.textContent = `${index + 1} / ${reviews.length}`;
-  }
-
-  function nextReview() {
-    reviewIndex = (reviewIndex + 1) % reviews.length;
-    renderReview(reviewIndex);
-  }
-
+  // review close
   document.querySelector('[data-review-close]').addEventListener('click', () => {
     reviewPop.classList.add('hidden');
-    clearInterval(reviewTimer);
   });
-
-  if (reviews.length > 1) {
-    reviewTimer = setInterval(nextReview, 5500);
-  }
-
-  // scroll reveal observer
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
-    });
-  }, { threshold: 0.1 });
-
-  document.querySelectorAll('section > .container, .splash-content, .service-card, .portfolio-card, .card, .faq-item').forEach(el => {
-    el.classList.add('reveal');
-    observer.observe(el);
-  });
-
-  // hero text scramble
-  const h1 = document.querySelector('.splash-text h1');
-  if (h1) {
-    const finalText = h1.innerHTML;
-    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*';
-    let frame = 0;
-    let timeout;
-    h1.innerHTML = finalText.replace(/[^<>]+/g, match => match.split('').map(() => chars[Math.floor(Math.random() * chars.length)]).join(''));
-    function scramble() {
-      if (frame > 10) { h1.innerHTML = finalText; return; }
-      h1.innerHTML = finalText.replace(/[^<>]+/g, match => match.split('').map((c, i) => Math.random() > (frame / 10) && c !== ' ' ? chars[Math.floor(Math.random() * chars.length)] : c).join(''));
-      frame++;
-      timeout = setTimeout(scramble, 45);
-    }
-    setTimeout(scramble, 400);
-    window.addEventListener('beforeunload', () => clearTimeout(timeout));
-  }
 
   // contact form accordion toggle
   const accordionToggle = document.getElementById('form-accordion-toggle');
@@ -633,71 +550,6 @@
       accordionPanel.classList.toggle('open');
       accordionToggle.classList.toggle('active');
     });
-  }
-
-  // ── GLORY GLARE: erratic, hard-core light effect ──
-  const gloryContainer = document.querySelector('.glory-container');
-  if (gloryContainer) {
-    // Randomize ray properties on an erratic timer
-    function erraticGlory() {
-      const rays = document.querySelectorAll('.glory-ray');
-      const flares = document.querySelectorAll('.glory-flare');
-      const burst = document.querySelector('.glory-burst');
-
-      // Flicker individual rays
-      rays.forEach(ray => {
-        const jitterR = (Math.random() - 0.5) * 20;
-        const jitterO = Math.random() * 0.4;
-        const jitterScale = 0.5 + Math.random() * 2;
-        ray.style.transform = `rotate(${jitterR}deg) scaleY(${jitterScale})`;
-        ray.style.opacity = 0.15 + jitterO;
-      });
-
-      // Pulse flares erratically
-      flares.forEach(flare => {
-        const scale = 0.5 + Math.random() * 3;
-        const opacity = Math.random() * 0.6;
-        flare.style.transform = `translate(-50%, -50%) scale(${scale})`;
-        flare.style.opacity = opacity;
-      });
-
-      // Burst flash
-      if (burst) {
-        burst.style.opacity = Math.random() > 0.7 ? Math.random() * 0.5 : 0;
-        const burstScale = 0.5 + Math.random() * 1.5;
-        burst.style.transform = `translate(-50%, -50%) scale(${burstScale})`;
-      }
-
-      // Erratic timing: random interval between 80ms and 600ms
-      const nextInterval = 80 + Math.random() * 520;
-      setTimeout(erraticGlory, nextInterval);
-    }
-
-    // Start the chaos
-    erraticGlory();
-
-    // Occasional massive flare burst
-    function megaFlare() {
-      const rays = document.querySelectorAll('.glory-ray');
-      const flares = document.querySelectorAll('.glory-flare');
-      rays.forEach(ray => {
-        ray.style.opacity = 0.5 + Math.random() * 0.5;
-        ray.style.filter = `blur(${2 + Math.random() * 8}px)`;
-      });
-      flares.forEach(flare => {
-        flare.style.opacity = 0.8 + Math.random() * 0.2;
-        flare.style.transform = `translate(-50%, -50%) scale(${2 + Math.random() * 4})`;
-      });
-      // Snap back after a brief flash
-      setTimeout(() => {
-        rays.forEach(ray => { ray.style.opacity = ''; ray.style.filter = ''; });
-        flares.forEach(flare => { flare.style.opacity = ''; });
-      }, 100 + Math.random() * 200);
-
-      // Schedule next mega flare: 3-8 seconds
-      setTimeout(megaFlare, 3000 + Math.random() * 5000);
-    }
-    setTimeout(megaFlare, 2000);
   }
 </script>
 </body>
