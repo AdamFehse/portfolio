@@ -370,180 +370,105 @@ section {
 .demo-frame { width: 100%; border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--border); }
 .demo-frame iframe { width: 100%; height: 560px; border: none; display: block; }
 
-/* --------- CONTACT FORM --------- */
-.contact-form-wrap {
+/* --------- CONTACT FORM ACCORDION --------- */
+.form-accordion {
   max-width: 640px;
   margin: 0 auto var(--space-xl);
-  position: relative;
 }
 
-#contact-form {
+.form-accordion-toggle {
   display: flex;
-  flex-direction: column;
-  gap: var(--space-md);
-}
-
-.form-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--space-md);
-}
-
-.form-field {
-  display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
-}
-
-.form-field label {
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: var(--text);
-  letter-spacing: 0.02em;
-}
-
-.form-optional {
-  font-weight: 400;
-  color: var(--text-muted);
-  font-size: 0.75rem;
-}
-
-.form-field input,
-.form-field textarea,
-.select-wrap select {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 0.75rem 1rem;
-  color: var(--text);
-  font-family: var(--font);
-  font-size: 0.9rem;
-  line-height: 1.4;
-  transition: border-color 0.2s, box-shadow 0.2s;
-  outline: none;
-  width: 100%;
-  appearance: none;
-  -webkit-appearance: none;
-}
-
-.form-field input::placeholder,
-.form-field textarea::placeholder {
-  color: var(--text-muted);
-  opacity: 0.6;
-}
-
-.form-field input:focus,
-.form-field textarea:focus,
-.select-wrap select:focus {
-  border-color: var(--accent);
-  box-shadow: 0 0 0 3px rgba(163, 230, 53, 0.1);
-}
-
-.form-field textarea {
-  resize: vertical;
-  min-height: 100px;
-}
-
-.select-wrap {
-  position: relative;
-}
-
-.select-wrap::after {
-  content: '';
-  position: absolute;
-  right: 1rem;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 0;
-  height: 0;
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
-  border-top: 5px solid var(--text-muted);
-  pointer-events: none;
-  transition: border-top-color 0.2s;
-}
-
-.select-wrap select:focus + ::after,
-.select-wrap:hover::after {
-  border-top-color: var(--accent);
-}
-
-.select-wrap select option {
-  background: var(--surface);
-  color: var(--text);
-  padding: 0.5rem;
-}
-
-.form-submit {
-  display: inline-flex;
   align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  padding: 0.85rem 2.5rem;
-  background: var(--accent);
-  color: var(--bg);
-  border: none;
-  border-radius: 100px;
-  font-weight: 700;
-  font-size: 0.9rem;
-  font-family: var(--font);
-  cursor: pointer;
-  letter-spacing: 0.02em;
-  transition: transform 0.15s, box-shadow 0.15s, opacity 0.2s;
-  margin-top: var(--space-sm);
-  align-self: flex-start;
-}
-
-.form-submit:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 0 24px rgba(163, 230, 53, 0.25);
-}
-
-.form-submit.sending {
-  opacity: 0.7;
-  pointer-events: none;
-}
-
-.form-submit-sending {
-  display: none;
-}
-
-.form-submit.sending .form-submit-text {
-  display: none;
-}
-
-.form-submit.sending .form-submit-sending {
-  display: inline;
-}
-
-.form-success {
-  display: none;
-  text-align: center;
-  padding: var(--space-xl) var(--space-lg);
+  justify-content: space-between;
+  width: 100%;
+  padding: 0.85rem 1.25rem;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
-  animation: fade-up 0.5s ease-out;
-}
-
-.form-success.show {
-  display: block;
-}
-
-.form-success-icon {
-  font-size: 2.5rem;
-  color: var(--accent);
-  margin-bottom: var(--space-md);
-}
-
-.form-success h3 {
-  font-size: 1.2rem;
-  margin-bottom: var(--space-sm);
-}
-
-.form-success p {
-  color: var(--text-muted);
+  color: var(--text);
+  font-family: var(--font);
   font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+  letter-spacing: 0.01em;
+}
+
+.form-accordion-toggle:hover {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(163, 230, 53, 0.08);
+}
+
+.form-accordion-toggle.active {
+  border-color: var(--accent);
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.form-accordion-icon {
+  display: block;
+  width: 18px;
+  height: 18px;
+  position: relative;
+  flex-shrink: 0;
+  margin-left: var(--space-md);
+}
+
+.form-accordion-icon::before,
+.form-accordion-icon::after {
+  content: '';
+  position: absolute;
+  background: var(--text-muted);
+  border-radius: 2px;
+  transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1), background 0.2s;
+}
+
+.form-accordion-icon::before {
+  width: 18px;
+  height: 2px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.form-accordion-icon::after {
+  width: 2px;
+  height: 18px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.form-accordion-toggle.active .form-accordion-icon::after {
+  transform: translate(-50%, -50%) rotate(90deg);
+  opacity: 0;
+}
+
+.form-accordion-toggle.active .form-accordion-icon::before {
+  background: var(--accent);
+}
+
+.form-accordion-toggle:hover .form-accordion-icon::before,
+.form-accordion-toggle:hover .form-accordion-icon::after {
+  background: var(--accent);
+}
+
+.form-accordion-panel {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  border: 1px solid var(--border);
+  border-top: none;
+  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+  background: var(--surface);
+}
+
+.form-accordion-panel.open {
+  max-height: 900px;
+}
+
+.form-accordion-panel .form-wrap {
+  padding: var(--space-md);
 }
 
 /* --------- GLORY GLARE EFFECT --------- */
@@ -735,7 +660,6 @@ footer {
   .services-audience { grid-template-columns: 1fr; max-width: 420px; margin-left: auto; margin-right: auto; }
   .footer-grid { grid-template-columns: repeat(2, 1fr); gap: var(--space-lg); }
   .proof-logos { gap: var(--space-lg); }
-  .form-row { grid-template-columns: 1fr; }
   .form-submit { width: 100%; }
   .glory-container { opacity: 0.6; }
   .demo-frame iframe { height: 400px; }

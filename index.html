@@ -74,7 +74,7 @@
     ]
   }
   </script>
-  <link rel="stylesheet" href="style.css?v=form-glory-1">
+  <link rel="stylesheet" href="style.css?v=accordion-glory-1">
 </head>
 <body>
 
@@ -445,73 +445,17 @@
 <section id="contact">
   <div class="container">
     <h2 class="section-title">Get in touch</h2>
-    <p class="section-desc">Interested in working together? Drop your details below or <a href="mailto:adamfehse5@gmail.com">email me directly</a>.</p>
+    <p class="section-desc">Interested in working together? Fill out the form or <a href="mailto:adamfehse5@gmail.com">email me directly</a>.</p>
 
-    <div class="contact-form-wrap">
-      <form id="contact-form" action="https://formsubmit.co/adamfehse5@gmail.com" method="POST">
-        <input type="hidden" name="_subject" value="New portfolio inquiry">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_next" value="">
-
-        <div class="form-row">
-          <div class="form-field">
-            <label for="cf-name">Your name</label>
-            <input type="text" id="cf-name" name="name" placeholder="Jane Doe" required>
-          </div>
-          <div class="form-field">
-            <label for="cf-email">Email</label>
-            <input type="email" id="cf-email" name="email" placeholder="jane@company.com" required>
-          </div>
+    <div class="form-accordion">
+      <button class="form-accordion-toggle" id="form-accordion-toggle" aria-expanded="false" aria-controls="form-accordion-panel">
+        <span class="form-accordion-label">Open inquiry form</span>
+        <span class="form-accordion-icon" aria-hidden="true"></span>
+      </button>
+      <div class="form-accordion-panel" id="form-accordion-panel" role="region" aria-labelledby="form-accordion-toggle">
+        <div class="form-wrap">
+          <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdxR0uciuqOVDXDzUpN9Vhys9lagAvaOYgmXVfX3P0OtS2fXQ/viewform?embedded=true" title="Project inquiry form" loading="lazy">Loading…</iframe>
         </div>
-
-        <div class="form-field">
-          <label for="cf-company">Company / organization <span class="form-optional">(optional)</span></label>
-          <input type="text" id="cf-company" name="company" placeholder="Acme Inc.">
-        </div>
-
-        <div class="form-field">
-          <label for="cf-service">What do you need?</label>
-          <div class="select-wrap">
-            <select id="cf-service" name="service" required>
-              <option value="" disabled selected>Select a service…</option>
-              <option value="new-site">New website (WordPress / Drupal)</option>
-              <option value="management">Ongoing site management</option>
-              <option value="ecommerce">E-commerce (WooCommerce / Stripe)</option>
-              <option value="data">Data visualization & automation</option>
-              <option value="seo">SEO & analytics</option>
-              <option value="other">Something else</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="form-field">
-          <label for="cf-budget">Budget range</label>
-          <div class="select-wrap">
-            <select id="cf-budget" name="budget">
-              <option value="" disabled selected>Select a range…</option>
-              <option value="under-1k">Under $1,000</option>
-              <option value="1k-5k">$1,000 – $5,000</option>
-              <option value="5k-10k">$5,000 – $10,000</option>
-              <option value="10k+">$10,000+</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="form-field">
-          <label for="cf-message">Tell me about the project</label>
-          <textarea id="cf-message" name="message" rows="4" placeholder="What are you building? Any deadlines or must-haves?" required></textarea>
-        </div>
-
-        <button type="submit" class="form-submit">
-          <span class="form-submit-text">Send it &rarr;</span>
-          <span class="form-submit-sending">Sending…</span>
-        </button>
-      </form>
-
-      <div class="form-success" id="form-success">
-        <div class="form-success-icon">✓</div>
-        <h3>Message sent</h3>
-        <p>I'll get back to you within 24 hours.</p>
       </div>
     </div>
 
@@ -679,25 +623,15 @@
     window.addEventListener('beforeunload', () => clearTimeout(timeout));
   }
 
-  // contact form handling
-  const contactForm = document.getElementById('contact-form');
-  const formSuccess = document.getElementById('form-success');
-  if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const btn = contactForm.querySelector('.form-submit');
-      btn.classList.add('sending');
-      const formData = new FormData(contactForm);
-      fetch(contactForm.action, { method: 'POST', body: formData, mode: 'no-cors' })
-        .then(() => {
-          contactForm.style.display = 'none';
-          formSuccess.classList.add('show');
-        })
-        .catch(() => {
-          // fallback — just show success anyway since formsubmit.co redirects
-          contactForm.style.display = 'none';
-          formSuccess.classList.add('show');
-        });
+  // contact form accordion toggle
+  const accordionToggle = document.getElementById('form-accordion-toggle');
+  const accordionPanel = document.getElementById('form-accordion-panel');
+  if (accordionToggle && accordionPanel) {
+    accordionToggle.addEventListener('click', () => {
+      const isOpen = accordionToggle.getAttribute('aria-expanded') === 'true';
+      accordionToggle.setAttribute('aria-expanded', !isOpen);
+      accordionPanel.classList.toggle('open');
+      accordionToggle.classList.toggle('active');
     });
   }
 
