@@ -265,7 +265,7 @@ footer {
 .splash-overlay {
   position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: flex-end;
   padding: 1.5rem;
-  background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.3) 45%, transparent 100%);
+  background: linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.6) 40%, rgba(0,0,0,0.25) 70%, transparent 100%);
   opacity: 0; transform: translateY(10px); transition: opacity 0.3s, transform 0.3s;
 }
 .splash-image-wrap:hover .splash-overlay { opacity: 1; transform: translateY(0); }
