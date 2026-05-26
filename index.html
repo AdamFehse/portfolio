@@ -105,7 +105,7 @@
 
 <aside class="review-pop" id="review-pop" aria-label="Client review" aria-live="polite">
   <div class="review-progress" id="review-progress"></div>
-  <label for="review-toggle" class="review-close" aria-label="Hide client review">&times;</label>
+  <button type="button" class="review-close" id="review-close-btn" aria-label="Hide client review">&times;</button>
   <div class="review-kicker">Client result</div>
   <blockquote data-review-quote>
     &ldquo;Loved the site. We went from not ranking to page 1. Easy to work with.&rdquo;
@@ -584,9 +584,9 @@
   startProgress();
   setInterval(cycleReview, CYCLE_MS);
 
-  // review close
-  document.querySelector('[data-review-close]').addEventListener('click', () => {
-    reviewPop.classList.add('hidden');
+  // review close — uncheck toggle + hide popup
+  document.getElementById('review-close-btn').addEventListener('click', () => {
+    document.getElementById('review-toggle').checked = false;
   });
 
   // contact form accordion toggle
