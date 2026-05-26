@@ -242,42 +242,46 @@ footer {
 
 /* --------- SOCIAL PROOF --------- */
 #social-proof {
-  padding: var(--space-lg) 0;
+  padding: 1.5rem 0;
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
-  background: var(--bg-lift);
+  background: var(--surface);
   text-align: center;
-  box-shadow: 0 1px 0 rgba(255,255,255,0.02) inset, 0 -1px 0 rgba(255,255,255,0.02) inset;
 }
 
 .proof-label {
   font-family: var(--font-mono);
-  font-size: 0.7rem;
+  font-size: 0.65rem;
   text-transform: uppercase;
-  letter-spacing: 0.15em;
-  color: var(--text-muted);
-  margin-bottom: var(--space-md);
+  letter-spacing: 0.18em;
+  color: var(--accent);
+  margin-bottom: 0.75rem;
+  font-weight: 600;
 }
 
 .proof-logos {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: var(--space-xl);
+  gap: 0.75rem;
   flex-wrap: wrap;
 }
 
 .proof-logo {
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--text-muted);
-  opacity: 0.6;
-  letter-spacing: 0.02em;
-  transition: opacity 0.2s;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--text);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  padding: 0.4rem 1rem;
+  border-radius: var(--radius-full);
+  letter-spacing: 0.01em;
+  transition: border-color 0.2s, color 0.2s;
 }
 
 .proof-logo:hover {
-  opacity: 1;
+  border-color: var(--accent);
+  color: var(--accent);
 }
 
 /* --------- SERVICES (AUDIENCE) --------- */
