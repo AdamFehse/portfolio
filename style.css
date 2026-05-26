@@ -182,6 +182,9 @@ footer {
   display: flex; align-items: center; padding-top: 70px; padding-bottom: 2rem;
   position: relative; overflow: hidden;
 }
+@media (max-width: 640px) {
+  #splash { padding-top: 60px; padding-bottom: 1rem; }
+}
 #splash::before {
   content: ''; position: absolute; inset: 0;
   background: radial-gradient(ellipse 80% 50% at 50% -10%, rgba(163,230,53,0.08), transparent 60%);
@@ -191,6 +194,29 @@ footer {
 .splash-content { width: 100%; position: relative; z-index: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: center; }
 
 .splash-text { padding: 1rem 2rem; max-width: 600px; }
+
+.splash-images {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+  justify-content: center;
+  align-items: stretch;
+  min-width: 0;
+}
+
+.card-one, .card-two { width: 100%; }
+
+@media (max-width: 640px) {
+  .splash-content {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding-top: 1rem;
+  }
+  .splash-text { padding: 0 1rem; }
+  .splash-images { padding: 0 1rem; }
+  .splash-image-wrap img { max-height: 240px; }
+}
 .splash-tag {
   display: inline-block; font-family: var(--font-mono); font-size: 0.72rem; font-weight: 500;
   text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 0.5rem;
@@ -225,13 +251,6 @@ footer {
   background: transparent; border: 1.5px solid var(--border); color: var(--text); box-shadow: none;
 }
 .splash-btn-outline:hover { border-color: rgba(163,230,53,0.4); box-shadow: none; }
-
-.splash-images {
-  flex: 1; display: flex; flex-direction: row; gap: 1rem;
-  padding: 1rem; justify-content: center; align-items: center; min-width: 0;
-}
-
-.card-one, .card-two { flex: 1; min-width: 0; }
 
 .splash-image-wrap {
   position: relative; border-radius: var(--radius-lg); overflow: hidden;
