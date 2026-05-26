@@ -675,7 +675,8 @@ footer {
   pointer-events: none;
 }
 
-.review-pop { position: fixed; left: 1rem; bottom: 1rem; width: min(320px, calc(100vw - 2rem)); padding: 1rem; padding-top: 1.25rem; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); color: var(--text); z-index: 120; box-shadow: 0 12px 40px rgba(0,0,0,0.5); overflow: hidden; transition: opacity 0.3s, transform 0.3s; }
+.review-pop { position: fixed; left: 1rem; bottom: 1rem; width: min(320px, calc(100vw - 2rem)); padding: 1rem; padding-top: 1.25rem; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); color: var(--text); z-index: 120; box-shadow: 0 12px 40px rgba(0,0,0,0.5); overflow: hidden; transition: opacity 0.3s, transform 0.3s; opacity: 0; transform: translateY(16px); pointer-events: none; }
+#review-toggle:checked ~ #review-pop { opacity: 1; transform: translateY(0); pointer-events: auto; }
 .review-progress { position: absolute; top: 0; left: 0; height: 3px; width: 0%; background: var(--accent); border-radius: 0; transition: width 0.1s linear; }
 .review-close { position: absolute; top: 0.55rem; right: 0.55rem; width: 30px; height: 30px; border: 1px solid var(--border); border-radius: 50%; background: transparent; color: var(--text-muted); font-size: 1.1rem; cursor: pointer; z-index: 2; display: flex; align-items: center; justify-content: center; }
 .review-close:hover { color: var(--accent); border-color: var(--accent); }
@@ -685,11 +686,6 @@ footer {
 .review-avatar { display: inline-flex; align-items: center; justify-content: center; width: 26px; height: 26px; border-radius: 50%; background: var(--accent); color: var(--bg); font-size: 0.75rem; font-weight: 700; }
 .review-count { margin-left: auto; font-family: var(--font-mono); font-size: 0.7rem; }
 
-#review-toggle:checked ~ #review-pop {
-  opacity: 0;
-  transform: translateY(16px);
-  pointer-events: none;
-}
 
 .review-reopen {
   position: fixed;
@@ -722,9 +718,7 @@ footer {
   flex-shrink: 0;
 }
 
-#review-toggle:checked ~ #review-reopen {
-  display: flex;
-}
+#review-toggle:not(:checked) ~ #review-reopen { display: flex; }
 
 /* --------- RESPONSIVE --------- */
 @media (max-width: 800px) {
