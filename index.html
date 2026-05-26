@@ -101,9 +101,11 @@
   </div>
 </header>
 
+<input type="checkbox" id="review-toggle" class="review-toggle-input">
+
 <aside class="review-pop" id="review-pop" aria-label="Client review" aria-live="polite">
   <div class="review-progress" id="review-progress"></div>
-  <button class="review-close" type="button" aria-label="Hide client review" data-review-close>&times;</button>
+  <label for="review-toggle" class="review-close" aria-label="Hide client review">&times;</label>
   <div class="review-kicker">Client result</div>
   <blockquote data-review-quote>
     &ldquo;Loved the site. We went from not ranking to page 1. Easy to work with.&rdquo;
@@ -114,6 +116,11 @@
     <span class="review-count" data-review-count>1 / 3</span>
   </div>
 </aside>
+
+<label for="review-toggle" class="review-reopen" id="review-reopen" aria-label="Show client reviews">
+  <span class="review-reopen-dot"></span>
+  Reviews
+</label>
 
 
 
