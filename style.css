@@ -621,7 +621,8 @@ footer {
 }
 
 /* --------- REVIEWS --------- */
-.review-pop { position: fixed; left: 1rem; bottom: 1rem; width: min(320px, calc(100vw - 2rem)); padding: 1rem; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); color: var(--text); z-index: 120; box-shadow: 0 12px 40px rgba(0,0,0,0.5); }
+.review-pop { position: fixed; left: 1rem; bottom: 1rem; width: min(320px, calc(100vw - 2rem)); padding: 1rem; padding-top: 1.25rem; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); color: var(--text); z-index: 120; box-shadow: 0 12px 40px rgba(0,0,0,0.5); overflow: hidden; }
+.review-progress { position: absolute; top: 0; left: 0; height: 3px; width: 0%; background: var(--accent); border-radius: 0; transition: width 0.1s linear; }
 .review-pop.hidden { opacity: 0; transform: translateY(16px); pointer-events: none; }
 .review-close { position: absolute; top: 0.55rem; right: 0.55rem; width: 30px; height: 30px; border: 1px solid var(--border); border-radius: 50%; background: transparent; color: var(--text-muted); font-size: 1.1rem; cursor: pointer; z-index: 2; }
 .review-close:hover { color: var(--accent); border-color: var(--accent); }

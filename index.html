@@ -74,7 +74,7 @@
     ]
   }
   </script>
-  <link rel="stylesheet" href="style.css?v=light-3">
+  <link rel="stylesheet" href="style.css?v=light-4">
 </head>
 <body>
 
@@ -101,6 +101,7 @@
 </header>
 
 <aside class="review-pop" id="review-pop" aria-label="Client review" aria-live="polite">
+  <div class="review-progress" id="review-progress"></div>
   <button class="review-close" type="button" aria-label="Hide client review" data-review-close>&times;</button>
   <div class="review-kicker">Client result</div>
   <blockquote data-review-quote>
@@ -534,6 +535,46 @@
       toggle.setAttribute('aria-expanded', 'false');
     });
   });
+
+  // review data
+  const reviews = [
+    { quote: "\u201cLoved the site. We went from not ranking to page 1. Easy to work with.\u201d", name: "David", avatar: "D" },
+    { quote: "\u201cAdam rebuilt our entire Drupal site and it\u2019s never run better. Professional and fast.\u201d", name: "Sarah", avatar: "S" },
+    { quote: "\u201cStripe integration was seamless. Our online store went live ahead of schedule.\u201d", name: "Marcus", avatar: "M" }
+  ];
+  let reviewIdx = 0;
+  let progressInterval;
+  const CYCLE_MS = 6000;
+
+  function showReview(idx) {
+    const r = reviews[idx];
+    reviewQuote.textContent = r.quote;
+    reviewName.textContent = r.name;
+    reviewAvatar.textContent = r.avatar;
+    reviewCount.textContent = (idx + 1) + " / " + reviews.length;
+  }
+
+  function startProgress() {
+    const bar = document.getElementById('review-progress');
+    if (!bar) return;
+    bar.style.transition = 'none';
+    bar.style.width = '0%';
+    // force reflow
+    bar.offsetHeight;
+    bar.style.transition = 'width ' + CYCLE_MS + 'ms linear';
+    bar.style.width = '100%';
+  }
+
+  function cycleReview() {
+    reviewIdx = (reviewIdx + 1) % reviews.length;
+    showReview(reviewIdx);
+    startProgress();
+  }
+
+  // kick it off
+  showReview(0);
+  startProgress();
+  setInterval(cycleReview, CYCLE_MS);
 
   // review close
   document.querySelector('[data-review-close]').addEventListener('click', () => {
