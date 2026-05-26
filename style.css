@@ -573,11 +573,17 @@ section {
 }
 
 .form-accordion-panel.open {
-  max-height: 1200px;
+  max-height: 900px;
 }
 
 .form-accordion-panel .form-wrap {
   padding: var(--space-md);
+}
+.form-accordion-panel .form-wrap iframe {
+  width: 100%;
+  height: 700px;
+  border: none;
+  display: block;
 }
 
 #blog { text-align: center; }
