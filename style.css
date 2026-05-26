@@ -277,6 +277,8 @@ footer {
   border-radius: var(--radius-full);
   letter-spacing: 0.01em;
   transition: border-color 0.2s, color 0.2s;
+  text-decoration: none;
+  display: inline-block;
 }
 
 .proof-logo:hover {
