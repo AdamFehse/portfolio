@@ -165,7 +165,7 @@ footer {
   z-index: 2;
 }
 #splash {
-  min-height: 80vh; display: flex; align: center; padding-top: 56px;
+  display: flex; align-items: center; padding-top: 70px; padding-bottom: 2rem;
   position: relative; overflow: hidden;
 }
 #splash::before {
@@ -176,27 +176,27 @@ footer {
 
 .splash-content { width: 100%; position: relative; z-index: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: center; }
 
-.splash-text { padding: var(--space-xl) var(--space-lg); max-width: 600px; }
+.splash-text { padding: 1rem 2rem; max-width: 600px; }
 .splash-tag {
   display: inline-block; font-family: var(--font-mono); font-size: 0.72rem; font-weight: 500;
-  text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: var(--space-md);
+  text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 0.5rem;
   background: var(--accent-dim); padding: 0.25rem 0.6rem; border-radius: var(--radius);
 }
 .splash-text h1 {
-  font-size: clamp(3rem, 8vw, 6rem); font-weight: 900; letter-spacing: -0.04em;
-  line-height: 0.95; color: var(--text); margin-bottom: var(--space-md);
+  font-size: clamp(2.2rem, 5vw, 3.8rem); font-weight: 900; letter-spacing: -0.04em;
+  line-height: 1.0; color: var(--text); margin-bottom: 0.5rem;
 }
 .splash-text h1 em { font-style: normal; color: var(--accent); }
 
 .hero-price {
   font-family: var(--font-mono); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.12em;
-  color: var(--text-muted); margin-bottom: var(--space-lg);
+  color: var(--text-muted); margin-bottom: 0.75rem;
 }
 .hero-price span { color: var(--accent); font-weight: 700; font-size: 1.3rem; vertical-align: middle; margin-right: 0.3rem; }
 
 .splash-desc {
-  font-size: 1.05rem; color: var(--text-muted); line-height: 1.65;
-  max-width: 44ch; margin-bottom: var(--space-lg);
+  font-size: 0.95rem; color: var(--text-muted); line-height: 1.55;
+  max-width: 44ch; margin-bottom: 1rem;
 }
 .splash-actions { display: flex; gap: 0.75rem; flex-wrap: wrap; }
 
@@ -214,7 +214,7 @@ footer {
 
 .splash-images {
   flex: 1; display: flex; flex-direction: row; gap: 1rem;
-  padding: 2rem 2rem 2rem 0; justify-content: center; align-items: center; min-width: 0;
+  padding: 1rem; justify-content: center; align-items: center; min-width: 0;
 }
 
 .card-one, .card-two { flex: 1; min-width: 0; }
@@ -226,7 +226,7 @@ footer {
   border: 1px solid var(--border); transition: border-color 0.2s, box-shadow 0.2s;
 }
 .splash-image-wrap:hover { border-color: rgba(163,230,53,0.3); box-shadow: 0 16px 48px rgba(0,0,0,0.6), 0 0 0 1px rgba(163,230,53,0.1) inset; }
-.splash-image-wrap img { width: 100%; height: auto; max-height: 38vh; object-fit: contain; display: block; transition: transform 0.3s ease; }
+.splash-image-wrap img { width: 100%; height: auto; max-height: 30vh; object-fit: contain; display: block; transition: transform 0.3s ease; }
 .splash-image-wrap:hover img { transform: scale(1.02); }
 
 .splash-overlay {
