@@ -370,7 +370,267 @@ section {
 .demo-frame { width: 100%; border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--border); }
 .demo-frame iframe { width: 100%; height: 560px; border: none; display: block; }
 
-/* --------- BLOG / CONTACT --------- */
+/* --------- CONTACT FORM --------- */
+.contact-form-wrap {
+  max-width: 640px;
+  margin: 0 auto var(--space-xl);
+  position: relative;
+}
+
+#contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.form-field label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: 0.02em;
+}
+
+.form-optional {
+  font-weight: 400;
+  color: var(--text-muted);
+  font-size: 0.75rem;
+}
+
+.form-field input,
+.form-field textarea,
+.select-wrap select {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.75rem 1rem;
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 0.9rem;
+  line-height: 1.4;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  outline: none;
+  width: 100%;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.form-field input::placeholder,
+.form-field textarea::placeholder {
+  color: var(--text-muted);
+  opacity: 0.6;
+}
+
+.form-field input:focus,
+.form-field textarea:focus,
+.select-wrap select:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(163, 230, 53, 0.1);
+}
+
+.form-field textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.select-wrap {
+  position: relative;
+}
+
+.select-wrap::after {
+  content: '';
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid var(--text-muted);
+  pointer-events: none;
+  transition: border-top-color 0.2s;
+}
+
+.select-wrap select:focus + ::after,
+.select-wrap:hover::after {
+  border-top-color: var(--accent);
+}
+
+.select-wrap select option {
+  background: var(--surface);
+  color: var(--text);
+  padding: 0.5rem;
+}
+
+.form-submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.85rem 2.5rem;
+  background: var(--accent);
+  color: var(--bg);
+  border: none;
+  border-radius: 100px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  font-family: var(--font);
+  cursor: pointer;
+  letter-spacing: 0.02em;
+  transition: transform 0.15s, box-shadow 0.15s, opacity 0.2s;
+  margin-top: var(--space-sm);
+  align-self: flex-start;
+}
+
+.form-submit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 24px rgba(163, 230, 53, 0.25);
+}
+
+.form-submit.sending {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.form-submit-sending {
+  display: none;
+}
+
+.form-submit.sending .form-submit-text {
+  display: none;
+}
+
+.form-submit.sending .form-submit-sending {
+  display: inline;
+}
+
+.form-success {
+  display: none;
+  text-align: center;
+  padding: var(--space-xl) var(--space-lg);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  animation: fade-up 0.5s ease-out;
+}
+
+.form-success.show {
+  display: block;
+}
+
+.form-success-icon {
+  font-size: 2.5rem;
+  color: var(--accent);
+  margin-bottom: var(--space-md);
+}
+
+.form-success h3 {
+  font-size: 1.2rem;
+  margin-bottom: var(--space-sm);
+}
+
+.form-success p {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+/* --------- GLORY GLARE EFFECT --------- */
+.glory-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+  mix-blend-mode: screen;
+}
+
+.glory-ray {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 4px;
+  height: 120vh;
+  background: linear-gradient(
+    to top,
+    transparent 0%,
+    rgba(163, 230, 53, 0.06) 20%,
+    rgba(163, 230, 53, 0.15) 40%,
+    rgba(200, 255, 100, 0.08) 60%,
+    transparent 100%
+  );
+  transform-origin: bottom center;
+  transform: rotate(var(--r, 0deg));
+  opacity: 0.15;
+  filter: blur(3px);
+  transition: transform calc(0.3s * var(--s, 1)) cubic-bezier(0.23, 1, 0.32, 1),
+              opacity calc(0.4s * var(--s, 1)) ease;
+  will-change: transform, opacity;
+}
+
+.glory-flare {
+  position: absolute;
+  left: var(--fx, 50%);
+  top: var(--fy, 50%);
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(163, 230, 53, 0.12) 0%,
+    rgba(163, 230, 53, 0.04) 30%,
+    transparent 70%
+  );
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 0;
+  filter: blur(20px);
+  transition: transform calc(0.5s * var(--fd, 1)) cubic-bezier(0.23, 1, 0.32, 1),
+              opacity calc(0.6s * var(--fd, 1)) ease;
+  will-change: transform, opacity;
+}
+
+.glory-burst {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.08) 0%,
+    rgba(163, 230, 53, 0.05) 20%,
+    transparent 60%
+  );
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 0;
+  filter: blur(40px);
+  transition: transform 0.15s ease, opacity 0.1s ease;
+  will-change: transform, opacity;
+}
+
+/* Ensure content sits above the glory effect */
+#site-header,
+.review-pop,
+section,
+footer {
+  position: relative;
+  z-index: 2;
+}
 #blog { text-align: center; }
 .blog-intro { color: var(--text-muted); margin-bottom: var(--space-lg); max-width: 480px; margin-left: auto; margin-right: auto; }
 #blog .btn, #contact .btn { display: inline-block; padding: 0.55rem var(--space-lg); background: var(--accent); color: var(--bg); font-weight: 700; text-decoration: none; border-radius: var(--radius); font-size: 0.85rem; transition: opacity 0.15s; }
@@ -380,8 +640,6 @@ section {
 #contact p { color: var(--text-muted); }
 #contact a { color: var(--accent); text-decoration: none; }
 #contact .section-desc a { text-decoration: underline; }
-.form-wrap { max-width: 640px; margin: 0 auto var(--space-lg); border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--border); background: var(--surface); }
-.form-wrap iframe { width: 100%; height: 800px; border: none; display: block; }
 .contact-links { font-size: 0.85rem; color: var(--text-muted); }
 .contact-links a { color: var(--text-muted); transition: color 0.15s; }
 .contact-links a:hover { color: var(--accent); }
@@ -477,6 +735,9 @@ footer {
   .services-audience { grid-template-columns: 1fr; max-width: 420px; margin-left: auto; margin-right: auto; }
   .footer-grid { grid-template-columns: repeat(2, 1fr); gap: var(--space-lg); }
   .proof-logos { gap: var(--space-lg); }
+  .form-row { grid-template-columns: 1fr; }
+  .form-submit { width: 100%; }
+  .glory-container { opacity: 0.6; }
   .demo-frame iframe { height: 400px; }
 }
 
