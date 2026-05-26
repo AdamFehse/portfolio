@@ -36,17 +36,6 @@ body {
 .container { max-width: 960px; margin: 0 auto; padding: 0 var(--space-md); }
 
 /* --------- HEADER --------- */
-#site-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 999;
-  background: rgba(26,26,26,0.85);
-  backdrop-filter: blur(12px) saturate(150%);
-  border-bottom: 1px solid var(--border);
-  transition: background 0.3s;
-}
 #site-header .container { display: flex; justify-content: space-between; align-items: center; height: 56px; position: relative; }
 #site-header .logo { font-weight: 800; color: var(--text); text-decoration: none; font-size: 1.1rem; letter-spacing: -0.03em; z-index: 101; }
 #site-header .logo::after { content: '.'; color: var(--accent); }
@@ -87,11 +76,11 @@ body {
   .menu-toggle { display: flex; cursor: pointer; }
 
   #main-nav {
-    position: fixed;
+    position: absolute;
     top: 56px;
     left: 0;
     right: 0;
-    z-index: 998;
+    z-index: 999;
     background: rgba(8, 8, 12, 0.97);
     backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border);
@@ -178,6 +167,16 @@ section,
 footer {
   position: relative;
   z-index: 2;
+}
+#site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  background: rgba(26,26,26,0.85);
+  backdrop-filter: blur(12px) saturate(150%);
+  border-bottom: 1px solid var(--border);
 }
 #splash {
   display: flex; align-items: center; padding-top: 70px; padding-bottom: 2rem;
